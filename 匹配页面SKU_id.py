@@ -89,7 +89,7 @@ def main():
 
     # 使用 pandas 导出 Excel 文件
     df = pd.DataFrame(data)
-    output_file = "SKU检查结果.xlsx"
+    output_file = "SKU匹配结果.xlsx"
     df.to_excel(output_file, index=False)
     print(f"结果已导出至 {output_file}")
 
