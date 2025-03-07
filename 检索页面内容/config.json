@@ -1,0 +1,15 @@
+{
+    "urls_file": "urls.txt",
+    "timeout": 30000,
+    "depth_search": true,
+    "wait_for_selectors": false,
+    "selectors": [],
+    "exit_on_found": false,
+    "skip_paths_file": "",  
+    "tag_combinations": [
+    ],
+    "text_contents": [
+    ],
+    "regex_patterns": [
+    ]
+  }

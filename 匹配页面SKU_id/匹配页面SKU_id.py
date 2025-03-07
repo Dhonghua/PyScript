@@ -71,11 +71,12 @@ def main():
             first_row = True
             for sku, exists_bool in result_dict.items():
                 row = {}
-                if first_row:
-                    row["网站链接"] = website
-                    first_row = False
-                else:
-                    row["网站链接"] = ""  # 同一网站的后续 SKU 不重复显示链接
+                row["网站链接"] = website
+                # if first_row:
+                #     row["网站链接"] = website
+                #     first_row = False
+                # else:
+                #     row["网站链接"] = ""  # 同一网站的后续 SKU 不重复显示链接
 
                 row["SKU"] = sku
                 if exists_bool is True:
