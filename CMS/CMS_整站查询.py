@@ -67,13 +67,11 @@ if all_records:
     # 调整列顺序
     result_df = result_df[['查询页面', 'URL']]
 
-    # 对“查询页面”列分组，除第一条外设为空
-    def blank_except_first(group):
-        group = group.copy()
-        group.loc[group.index[1:], '查询页面'] = ''
-        return group
+    # 标记组内第一条记录
+    mask = result_df['查询页面'] != result_df['查询页面'].shift()
 
-    result_df = result_df.groupby('查询页面', group_keys=False).apply(blank_except_first)
+    # 除了组首，其余查询页面设为空
+    result_df['查询页面'] = result_df['查询页面'].where(mask, '')
 
     result_df.to_excel("提取结果_URL及查询页面_分组显示.xlsx", index=False)
     print("📁 已保存为：提取结果_URL及查询页面_分组显示.xlsx")
