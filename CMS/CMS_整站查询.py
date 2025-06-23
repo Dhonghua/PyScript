@@ -4,12 +4,14 @@ import pandas as pd
 import time
 from io import StringIO
 
+PHPSESSID = "" # 替换为实际的 PHPSESSID
+
 headers = {
     "Content-Type": "application/x-www-form-urlencoded",
     "User-Agent": "Mozilla/5.0",
     "Origin": "https://cms.imyfone.club",
     "Referer": "https://cms.imyfone.club/imyfoneadmin/manage_all/index.html",
-    "Cookie": "admin_username=daihh; PHPSESSID=e8aolv03vcqkpapbkcijcnvsig; site_id=15"
+    "Cookie": f"admin_username=daihh; PHPSESSID={PHPSESSID}; site_id=15"
 }
 
 url_list = [
