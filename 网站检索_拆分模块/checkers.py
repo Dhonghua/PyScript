@@ -118,8 +118,10 @@ def check_regex_patterns(page_source, regex_patterns, exit_on_found, context_siz
             start = max(0, match.start() - context_size)
             end = min(len(page_source), match.end() + context_size)
             context = page_source[start:end]
+
             # matches.append(context)  #包含上下文信息
             matches.append(match.group())  #仅目标内容
+
         count = len(matches)
         results[pattern_name] = {'count': count, 'matched_contents': matches}
         if exit_on_found and count > 0:
