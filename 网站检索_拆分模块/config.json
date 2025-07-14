@@ -1,0 +1,19 @@
+{
+  "urls_file": "E:\\pys\\网站检索脚本_拆分模块版\\urls.txt",
+  "timeout": 30000,
+  "depth_search": false,
+  "wait_for_selectors": false,
+  "selectors": [],
+  "exit_on_found": false,
+  "skip_paths_file": "",  
+  "tag_combinations": [
+  ],
+  "text_contents": [
+  ],
+  "regex_patterns": [
+    {
+        "name":"CSS/JS链接",
+        "pattern": "https:\\/\\/[a-zA-Z0-9\\-._\\/]+\\/[a-zA-Z0-9\\-_.]+\\.(svg|png|jpg|jpeg|gif|webp)"
+    }
+  ]
+}

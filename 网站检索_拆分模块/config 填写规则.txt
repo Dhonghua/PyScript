@@ -1,0 +1,67 @@
+
+urls_file: 包含待检索URL列表的文件路径，例如 urls.txt。
+timeout: 页面加载超时时间，以毫秒为单位，设置为 30000 表示 30 秒。
+depth_search: 是否进行深度搜索，设置为 false 表示不进行深度搜索。
+wait_for_selectors: 是否等待特定选择器加载，设置为 false 表示不等待。
+selectors: 需要等待的选择器列表，默认为空列表。
+exit_on_found: 是否在找到匹配内容后退出，设置为 false 表示不退出。
+skip_paths_file: 包含需要跳过路径的文件路径，默认为空字符串。
+tag_combinations: 要检查的标签组合列表。每个组合包含标签名称及其属性，以及标签之间的关系（child 表示子标签，sibling 表示兄弟标签）。
+text_contents: 要检查的特定文本内容列表，默认为空列表。
+regex_patterns: 要检查的正则表达式模式列表。每个模式包含名称和正则表达式字符串。
+
+{
+  "urls_file": "urls.txt",              // 包含待检索URL列表的文件路径
+  "timeout": 30000,                     // 页面加载超时时间（毫秒）
+  "depth_search": false,                // 是否进行深度搜索
+  "wait_for_selectors": false,          // 是否等待特定选择器加载
+  "selectors": [],                      // 需要等待的选择器列表
+  "exit_on_found": false,               // 是否在找到匹配内容后退出
+  "skip_paths_file": "",                // 包含需要跳过路径的文件路径
+  "tag_combinations": [                 // 要检查的标签组合
+    {
+      "name": "li-p嵌套",              // 组合名称
+      "tags": [
+        {
+          "tag_name": "li",            // 第一个标签名称
+          "attributes": {}             // 第一个标签的属性
+        },
+        {
+          "tag_name": "p",             // 第二个标签名称
+          "attributes": {}             // 第二个标签的属性
+        }
+      ],
+      "relation": "child"              // 标签之间的关系，可以是 "sibling" 或 "child"
+    },
+    {
+      "name": "li-p相邻",              // 另一个组合名称
+      "tags": [
+        {
+          "tag_name": "li",            // 第一个标签名称
+          "attributes": {}             // 第一个标签的属性
+        },
+        {
+          "tag_name": "p",             // 第二个标签名称
+          "attributes": {}             // 第二个标签的属性
+        }
+      ],
+      "relation": "sibling"            // 标签之间的关系，可以是 "sibling" 或 "child"
+    }
+  ],
+  "text_contents": [],                  // 要检查的特定文本内容列表
+  "regex_patterns": [                   // 要检查的正则表达式模式列表
+    {
+      "name": "li_p",                  // 正则表达式模式名称
+      "pattern": "<li><p[^>]*>"        // 正则表达式，匹配 <li> 标签内嵌套 <p>标签
+    },
+    {
+      "name": "close_li_p",            // 另一个正则表达式模式名称
+      "pattern": "</li></p>"           // 正则表达式，匹配 </li> 和 </p> 的组合
+    }
+  ]
+}
+
+
+正则表达式 
+JS/CSS文件，不包含"https","." : "\\/[a-zA-Z0-9\\-_\\/]+\\/assets\\/[a-zA-Z0-9\\-._\\/]*\\.(css|js)+[a-zA-Z]?"
+图片路径："https:\\/\\/[a-zA-Z0-9\\-._\\/]+\\/[a-zA-Z0-9\\-_.]+\\.(svg|png|jpg|jpeg|gif|webp)"
